@@ -114,7 +114,7 @@ def generate_cloud():
             font = font_manager.FontProperties(fname=path)
             if font_name in font.get_name():
                 return path
-    with urlopen('https://img.icons8.com/color/480/google-colab.png') as resp: 
+    with urlopen('https://img.icons8.com/color/1600/google-colab.png') as resp:
         image = asarray(bytearray(resp.read()), dtype="uint8")
     _, bw_img = threshold(imdecode(image, IMREAD_GRAYSCALE), 127, 255, THRESH_BINARY)
     mask = bw_img[any(bw_img, axis=1)]
@@ -233,7 +233,6 @@ def get_trending(packages, topK: int):
 def generate_markdown():
     top_authors, num_visible_authors = get_top_authors(TOP_K)
     packages = get_pypi_downloads()
-    print(packages)
     to_write = [
         '[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/amrzv/awesome-colab-notebooks)](https://hits.seeyoufarm.com)',
         '![awesome-colab-notebooks](https://count.getloli.com/get/@awesome-colab-notebooks?theme=rule34)\n',
